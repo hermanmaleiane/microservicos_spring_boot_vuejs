@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.mz.malesoft.SpringBootReactCrudFullStackWithMavenApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.27 s - in com.mz.malesoft.SpringBootReactCrudFullStackWithMavenApplicationTests

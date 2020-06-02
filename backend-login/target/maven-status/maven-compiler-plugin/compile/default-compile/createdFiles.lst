@@ -1,0 +1,10 @@
+com\mz\malesoft\model\User.class
+com\mz\malesoft\service\UserServiceImpl.class
+com\mz\malesoft\model\Role.class
+com\mz\malesoft\config\WebSecurityConfig.class
+com\mz\malesoft\repository\UserRepository.class
+com\mz\malesoft\config\WebSecurityConfig$1.class
+com\mz\malesoft\controller\UserController.class
+com\mz\malesoft\SpringFullStackApplication.class
+com\mz\malesoft\service\UserDetailServiceImpl.class
+com\mz\malesoft\service\UserService.class

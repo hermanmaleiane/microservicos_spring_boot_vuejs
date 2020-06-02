@@ -1,0 +1,63 @@
+version: '3.6'
+services:
+  db:
+    image: mysql
+    #hostname: postgres
+    container_name: books-docker-db
+    environment:
+      MYSQL_DATABASE: login
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+    ports:
+      #- 3306:5432
+      - target: 3306
+        published: 3306
+        protocol: tcp
+        mode: host
+    networks:
+      - backdb
+    expose: 
+      - 3306
+  
+  backendCursos:
+    build: 
+      context: ./backend-cursos
+      target:  crudService
+    image: malesostdev/cursos-backend
+    container_name: cursos-backend
+    ports:
+      - 8090:8090
+    depends_on:
+      - db
+    networks:
+      - backdb
+      
+  backendLogin:
+    build: 
+      context: ./backend-login
+      target:  loginService
+    image: malesostdev/login-backend
+    container_name: login-backend
+    ports:
+      - 8090:8090
+    depends_on:
+      - db
+    networks:
+      - backdb
+
+  front:
+    build: ./client-side
+    image: yahiadev/client-frontend
+    container_name: client-frontend
+    ports:
+      - 8080:8080
+    depends_on:
+      - backendLogin
+    networks: 
+      - frontback     
+  
+networks: 
+  backdb:
+    driver: bridge
+  frontback:
+    driver: bridge
